@@ -1,90 +1,102 @@
-# Twitter Sentiment Analysis Project
+# Projekt Analizy Sentimentów na Twitterze
 
-This project focuses on cleaning, analyzing a dataset, and comparing different algorithms for natural language processing. The dataset used is 'Twitter posts data' from Kaggle, which contains a variety of casual expressions, making it suitable for sentiment analysis.
+Ten projekt koncentruje się na czyszczeniu, analizie danych oraz porównywaniu różnych algorytmów do przetwarzania języka naturalnego. Użyto zbioru danych z postami na Twitterze z Kaggle, który zawiera wiele potocznych wyrażeń, co czyni go odpowiednim do analizy sentimentu.
 
-## Process Overview
+## Przegląd Procesu
 
-The project includes the following steps:
+Projekt obejmuje następujące kroki:
 
-1. Data overview and analysis
-2. Data cleaning and preprocessing
-3. Building and evaluating AI models
+1. Przegląd i analiza danych
+2. Czyszczenie i przetwarzanie danych
+3. Budowanie i ocena modeli AI
 
-## Libraries Used
+## Użyte Biblioteki
 
 - Pandas
 - Seaborn
 - SciKit Learn
 - NLTK
 
-## Data Overview
+## Przegląd Danych
 
-The dataset is divided into training, testing, and validation sets:
+Zbiór danych jest podzielony na zestawy treningowe, testowe i walidacyjne:
 - `train.csv`
 - `test.csv`
 - `val.csv`
 
-These are combined into a single DataFrame for processing. A preview of the data and class distribution is provided using Seaborn for visualization.
+Te pliki są połączone w jeden DataFrame do przetwarzania. Przegląd danych oraz dystrybucja klas są przedstawione za pomocą wizualizacji w Seaborn.
 
-## Data Cleaning and Preprocessing
+## Czyszczenie i Przetwarzanie Danych
 
-### Dropping Outliers and Duplicates
+### Usuwanie Odstających Wartości i Duplikatów
 
-- Calculate the length of each tweet.
-- Remove tweets with lengths exceeding a threshold.
-- Remove duplicate tweets.
+- Obliczanie długości każdego tweeta.
+- Usuwanie tweetów, których długość przekracza określony próg.
+- Usuwanie zduplikowanych tweetów.
 
-### Downsizing Classes
+### Zmniejszanie Wielkości Klas
 
-The dataset is downsampled to balance the classes by taking the size of the smallest class and applying it to the rest.
+Zbiór danych jest zmniejszany, aby zbalansować klasy, poprzez przyjęcie wielkości najmniejszej klasy i dostosowanie reszty do tej wielkości.
 
-### Custom Tokenizer
+### Niestandardowy Tokenizer
 
-A custom tokenizer is built using NLTK to:
-- Convert emojis to words.
-- Remove mentions (@).
-- Replace common abbreviations with full words.
-- Apply stemming.
+Zbudowano niestandardowy tokenizer przy użyciu NLTK, który:
+- Konwertuje emoji na słowa.
+- Usuwa wzmianki (@).
+- Zastępuje popularne skróty pełnymi słowami.
+- Stosuje stemming.
 
-## Building AI Models
+## Budowanie Modeli AI
 
-Two models are built and compared:
-1. Complement Naive Bayes (CNB)
+Zbudowano i porównano dwa modele:
+1. Naive Bayes (CNB)
 2. Stochastic Gradient Descent (SGD)
 
-These models are evaluated using the original and downsampled datasets.
+Modele te są oceniane przy użyciu oryginalnych oraz zmniejszonych zbiorów danych.
 
-### Model Pipelines
+### Pipeline Modeli
 
-- CountVectorizer with custom tokenizer
+- CountVectorizer z niestandardowym tokenizerem
 - ComplementNB
 - SGDClassifier
 
-### Model Evaluation
+### Ocena Modeli
 
-Models are evaluated using:
-- Classification Report
-- Confusion Matrix
+Modele są oceniane przy użyciu:
+- Raportu klasyfikacyjnego
+- Macierzy pomyłek
 - F1 Score
 
-### Practical Testing
+### Testowanie Praktyczne
 
-The models are tested on new sentences to evaluate their practical performance.
+Modele są testowane na nowych zdaniach, aby ocenić ich praktyczną wydajność.
 
-## Hyperparameter Optimization
+## Optymalizacja Hiperparametrów
 
-A RandomizedSearchCV is used to optimize the hyperparameters of the SGDClassifier.
+RandomizedSearchCV jest używany do optymalizacji hiperparametrów SGDClassifier.
 
-## Results
+## Wyniki
 
-Both models are compared in terms of accuracy and F1 score. The Complement Naive Bayes model generally performs better with downsampled data, while SGD shows promising results with further hyperparameter tuning.
+Oba modele są porównywane pod względem dokładności i F1 Score. Model Complement Naive Bayes zazwyczaj osiąga lepsze wyniki z zredukowanymi danymi, podczas gdy SGD pokazuje obiecujące wyniki po dalszej optymalizacji hiperparametrów.
 
-## Conclusion
+## Wnioski
 
-Despite the raw and casual nature of the dataset, it is possible to create a sentiment classifier. However, the effectiveness of the classifier depends on the complexity of the sentence structure and context.
+Pomimo surowego i potocznego charakteru zbioru danych, możliwe jest stworzenie klasyfikatora sentimentu. Jednak skuteczność klasyfikatora zależy od złożoności struktury zdania i kontekstu.
 
-## Instructions for Running the Project
+## Instrukcje do Uruchomienia Projektu
 
-1. Ensure you have the required libraries installed:
+1. Upewnij się, że masz zainstalowane wymagane biblioteki:
    ```bash
    pip install pandas seaborn scikit-learn nltk
+Umieść pliki zbioru danych (train.csv, test.csv, val.csv) w katalogu projektu.
+
+Uruchom dostarczony kod w Jupyter Notebook lub dowolnym środowisku Python.
+
+Notebook wygeneruje wyniki analizy, oceny modeli oraz testów praktycznych.
+
+Przyszłe Prace
+Eksploracja dodatkowych technik przetwarzania tekstu.
+Implementacja bardziej zaawansowanych modeli, takich jak LSTM lub BERT.
+Zwiększenie rozmiaru zbioru danych w celu lepszej generalizacji modeli.
+Autor
+Projekt został stworzony przez [Twoje Imię].
