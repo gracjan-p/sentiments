@@ -1,4 +1,4 @@
-# Projekt Analizy Sentimentów na Twitterze
+# Projekt Analizy emocji z postów z Twitter'a.
 
 Ten projekt koncentruje się na czyszczeniu, analizie danych oraz porównywaniu różnych algorytmów do przetwarzania języka naturalnego (NLP). Do tego celu użyłem zbioru danych z postami na Twitterze ze strony Kaggle, który zawiera wiele potocznych wyrażeń, co czyni go odpowiednim do analizy emocjonalnej.
 
