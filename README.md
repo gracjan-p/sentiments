@@ -1,102 +1,106 @@
-# Projekt Analizy emocji z postów z Twitter'a.
+# Twitter Sentiment Analysis Project
 
-Ten projekt koncentruje się na czyszczeniu, analizie danych oraz porównywaniu różnych algorytmów do przetwarzania języka naturalnego (NLP). Do tego celu użyłem zbioru danych z postami na Twitterze ze strony Kaggle, który zawiera wiele potocznych wyrażeń, co czyni go odpowiednim do analizy emocjonalnej.
+This project focuses on cleaning, analyzing a dataset, and comparing different algorithms for natural language processing. The dataset used is 'Twitter posts data' from Kaggle, which contains a variety of casual expressions, making it suitable for sentiment analysis.
 
-## Przegląd Procesu
+## Process Overview
 
-Projekt obejmuje następujące kroki:
+The project includes the following steps:
 
-1. Przegląd i analiza danych
-2. Czyszczenie i przetwarzanie danych
-3. Budowanie i ocena modeli AI
+1. Data overview and analysis
+2. Data cleaning and preprocessing
+3. Building and evaluating AI models
 
-## Użyte Biblioteki
+## Libraries Used
 
 - Pandas
 - Seaborn
 - SciKit Learn
 - NLTK
 
-## Przegląd Danych
+## Data Overview
 
-Zbiór danych jest podzielony na zestawy treningowe, testowe i walidacyjne:
+The dataset is divided into training, testing, and validation sets:
 - `train.csv`
 - `test.csv`
 - `val.csv`
 
-Te pliki są połączone w jeden plik DataFrame. Przegląd danych oraz dystrybucje klas są przedstawione za biblioteki Seaborn.
+These are combined into a single DataFrame for processing. A preview of the data and class distribution is provided using Seaborn for visualization.
 
-## Czyszczenie i Przetwarzanie Danych
+## Data Cleaning and Preprocessing
 
-### Usuwanie Odstających Wartości i Duplikatów
+### Dropping Outliers and Duplicates
 
-- Obliczanie długości każdego tweeta.
-- Usuwanie tweetów, których długość przekracza określony próg.
-- Usuwanie zduplikowanych tweetów.
+- Calculate the length of each tweet.
+- Remove tweets with lengths exceeding a threshold.
+- Remove duplicate tweets.
 
-### Zmniejszanie Wielkości Klas
+### Downsizing Classes
 
-Zbiór danych jest zmniejszany, aby zbalansować klasy, poprzez przyjęcie wielkości najmniejszej klasy i dostosowanie reszty do tej wielkości.
+The dataset is downsampled to balance the classes by taking the size of the smallest class and applying it to the rest.
 
-### Niestandardowy Tokenizer
+### Custom Tokenizer
 
-Zbudowano niestandardowy tokenizer przy użyciu NLTK, który:
-- Konwertuje emoji na słowa.
-- Usuwa wzmianki (@).
-- Zastępuje popularne skróty pełnymi słowami.
-- Stosuje tak zwany stemming.
+A custom tokenizer is built using NLTK to:
+- Convert emojis to words.
+- Remove mentions (@).
+- Replace common abbreviations with full words.
+- Apply stemming.
 
-## Budowanie Modeli AI
+## Building AI Models
 
-Porównano działanie dwóch modeli:
+Two models are built and compared:
 1. Complement Naive Bayes (CNB)
 2. Stochastic Gradient Descent (SGD)
 
-Modele te są oceniane przy użyciu oryginalnych oraz zmniejszonych zbiorów danych.
+These models are evaluated using the original and downsampled datasets.
 
-### Pipeline Modeli
+### Model Pipelines
 
-- CountVectorizer z niestandardowym tokenizerem
+- CountVectorizer with custom tokenizer
 - ComplementNB
 - SGDClassifier
 
-### Ocena Modeli
+### Model Evaluation
 
-Modele są oceniane przy użyciu:
-- Raportu klasyfikacyjnego (classification report)
-- Macierzy pomyłek (confusion matrix)
-- Wynik F1 (F1 Score)
+Models are evaluated using:
+- Classification Report
+- Confusion Matrix
+- F1 Score
 
-### Testowanie Praktyczne
+### Practical Testing
 
-Modele są testowane na nowych zdaniach, aby ocenić ich praktyczną wydajność.
+The models are tested on new sentences to evaluate their practical performance.
 
-## Optymalizacja Hiperparametrów
+## Hyperparameter Optimization
 
-RandomizedSearchCV jest używany do optymalizacji hiperparametrów SGDClassifier.
+A RandomizedSearchCV is used to optimize the hyperparameters of the SGDClassifier.
 
-## Wyniki
+## Results
 
-Oba modele są porównywane pod względem dokładności oraz wyniku F1. Model Complement Naive Bayes zazwyczaj osiąga lepsze wyniki z zredukowanymi danymi, podczas gdy SGD pokazuje obiecujące wyniki po dalszej optymalizacji hiperparametrów.
+Both models are compared in terms of accuracy and F1 score. The Complement Naive Bayes model generally performs better with downsampled data, while SGD shows promising results with further hyperparameter tuning.
 
-## Wnioski
+## Conclusion
 
-Pomimo surowego i potocznego charakteru zbioru danych, możliwe jest stworzenie klasyfikatora emocji. Jednak skuteczność klasyfikatora zależy od złożoności struktury zdania i kontekstu.
+Despite the raw and casual nature of the dataset, it is possible to create a sentiment classifier. However, the effectiveness of the classifier depends on the complexity of the sentence structure and context.
 
-## Instrukcje do Uruchomienia Projektu
+## Instructions for Running the Project
 
-1. Upewnij się, że masz zainstalowane wymagane biblioteki:
+1. Ensure you have the required libraries installed:
    ```bash
    pip install pandas seaborn scikit-learn nltk
-Umieść pliki zbioru danych (train.csv, test.csv, val.csv) w katalogu projektu.
+Place the dataset files (train.csv, test.csv, val.csv) in the project directory.
 
-Uruchom dostarczony kod w Jupyter Notebook lub dowolnym środowisku Python.
+Run the provided code in a Jupyter Notebook or any Python environment.
 
-Notebook wygeneruje wyniki analizy, oceny modeli oraz testów praktycznych.
+The notebook will output the results of the analysis, model evaluation, and practical testing.
 
-Przyszłe Prace
-Eksploracja dodatkowych technik przetwarzania tekstu.
-Implementacja bardziej zaawansowanych modeli, takich jak LSTM lub BERT.
-Zwiększenie rozmiaru zbioru danych w celu lepszej generalizacji modeli.
-Autor
-Projekt został stworzony przez Gracjana Pawłowskiego.
+Future Work
+Explore additional text preprocessing techniques.
+Implement more sophisticated models like LSTM or BERT.
+Increase the dataset size for better model generalization.
+Author
+This project was created by Gracjan Pawłowski.
+
+Acknowledgments
+Kaggle for providing the Twitter posts dataset.
+NLTK for natural language processing tools.
